@@ -1,0 +1,7 @@
+name: ${project.name}
+version: ${project.version}
+main: eu.kennytv.viahitbox.ViaHitboxPlugin
+authors: [KennyTV]
+depend: [ViaVersion]
+api-version: 1.13
+website: https://github.com/KennyTV/ViaHitbox
