@@ -26,6 +26,7 @@ public final class ViaHitboxPlugin extends JavaPlugin implements Listener {
         if (ProtocolRegistry.SERVER_PROTOCOL >= 441) {
             getLogger().warning("Are you shure you read the plugin description correctly?");
             getServer().getPluginManager().disablePlugin(this);
+            return;
         }
 
         if (config.getBoolean("change-1_9-hitbox")) {
@@ -60,15 +61,12 @@ public final class ViaHitboxPlugin extends JavaPlugin implements Listener {
 
     @EventHandler
     public void playerToggleSneak(final PlayerToggleSneakEvent event) {
-        setHitbox(event.getPlayer(), event.isSneaking());
-    }
-
-    private void setHitbox(final Player player, final boolean sneaking) {
+        final Player player = event.getPlayer();
         final int protocolVersion = Via.getAPI().getPlayerVersion(player.getUniqueId());
         if (fix1_14 && protocolVersion >= 441) {
-            setHight(player, sneaking ? 1.5F : 1.8F);
+            setHight(player, event.isSneaking() ? 1.5F : 1.8F);
         } else if (fix1_9 && protocolVersion >= 107) {
-            setHight(player, sneaking ? 1.6F : 1.8F);
+            setHight(player, event.isSneaking() ? 1.6F : 1.8F);
         }
     }
 
