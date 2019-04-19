@@ -5,4 +5,4 @@ change-1_9-hitbox: true
 # WARNING: This gives 1.14+ players the ability to sneak under blocks, that players under that version cannot!
 # This specifically means sneaking in places that are only 1.5 blocks high.
 # Another thing to remember is that those players might be missed by projectiles and other hits directed at the very top of their head whilst sneaking.
-change-1_14-hitbox: false
+change-1_14-hitbox: true
